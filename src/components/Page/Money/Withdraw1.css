@@ -1,0 +1,101 @@
+/* Main container for the withdrawal page */
+.withdraw-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #5f2c82, #49a09d); /* Gradient background */
+  padding: 20px;
+}
+
+/* Box for the withdrawal form */
+.withdraw-box {
+  background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Title of the form */
+.withdraw-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Text displaying current balance */
+.withdraw-balance {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Style for input fields */
+.withdraw-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.withdraw-input:focus {
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+  border: 2px solid #5f2c82; /* Focus effect */
+}
+
+/* Style for buttons */
+.withdraw-button {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.jazzcash-button {
+  background: linear-gradient(135deg, #ff7eb3, #ff758c);
+  color: white;
+  border: none;
+}
+
+.easypaisa-button {
+  background: linear-gradient(135deg, #ff7b00, #ff6f2a);
+  color: white;
+  border: none;
+}
+
+.withdraw-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.withdraw-button:active {
+  transform: scale(0.98);
+}
+
+/* Message Box (optional for success/error messages) */
+.message-box {
+  margin-top: 20px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+}

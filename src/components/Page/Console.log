@@ -1,0 +1,86 @@
+import React, { useState, useEffect } from "react";
+
+const CrashGame = () => {
+  const [multiplier, setMultiplier] = useState(1.0);
+  const [isCrashed, setIsCrashed] = useState(false);
+  const [betAmount, setBetAmount] = useState(10);
+  const [userBalance, setUserBalance] = useState(1000);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [crashPoint, setCrashPoint] = useState(null);
+
+  useEffect(() => {
+    if (isPlaying) {
+      // Generate a random crash point between 1.5x to 10.0x
+      const randomCrashPoint = (Math.random() * 8.5 + 1.5).toFixed(2);
+      setCrashPoint(parseFloat(randomCrashPoint));
+
+      let interval = setInterval(() => {
+        setMultiplier((prev) => {
+          if (prev >= crashPoint) {
+            clearInterval(interval);
+            setIsCrashed(true);
+            setIsPlaying(false);
+            return prev;
+          }
+          return parseFloat((prev + 0.05).toFixed(2));
+        });
+      }, 100);
+
+      return () => clearInterval(interval);
+    }
+  }, [isPlaying, crashPoint]);  // Include crashPoint in the dependency array
+
+  const placeBet = () => {
+    if (betAmount > userBalance) {
+      alert("Insufficient balance!");
+      return;
+    }
+
+    setUserBalance(userBalance - betAmount);
+    setMultiplier(1.0);
+    setIsCrashed(false);
+    setIsPlaying(true);
+  };
+
+  const cashOut = () => {
+    if (!isCrashed && isPlaying) {
+      const winnings = betAmount * multiplier;
+      setUserBalance(userBalance + winnings);
+      setIsPlaying(false);
+      alert(`You cashed out at ${multiplier}x and won $${winnings.toFixed(2)}!`);
+    }
+  };
+
+  return (
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-900 text-white">
+      <h1 className="text-4xl font-bold mb-4">Crash Game</h1>
+      <p className={`text-5xl font-bold ${isCrashed ? "text-red-500" : "text-green-400"}`}>
+        {multiplier.toFixed(2)}x
+      </p>
+      {isCrashed && <p className="text-red-400">Crashed at {crashPoint}x!</p>}
+
+      <div className="mt-4">
+        <input
+          type="number"
+          value={betAmount}
+          onChange={(e) => setBetAmount(Number(e.target.value))}
+          className="text-black p-2 rounded"
+          disabled={isPlaying}
+        />
+        <button onClick={placeBet} className="ml-2 bg-blue-500 px-4 py-2 rounded" disabled={isPlaying}>
+          Place Bet
+        </button>
+      </div>
+
+      <div className="mt-4">
+        <button onClick={cashOut} className="bg-green-500 px-4 py-2 rounded" disabled={!isPlaying || isCrashed}>
+          Cash Out
+        </button>
+      </div>
+
+      <p className="mt-4">Balance: ${userBalance.toFixed(2)}</p>
+    </div>
+  );
+};
+
+export default CrashGame;

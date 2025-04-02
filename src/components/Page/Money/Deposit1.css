@@ -1,0 +1,132 @@
+/* Main container for the deposit page */
+.deposit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #3498db, #2ecc71); /* Gradient background */
+  padding: 20px;
+}
+
+/* Box for the deposit form */
+.deposit-box {
+  background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Title of the form */
+.deposit-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Instructions for deposit */
+.deposit-instructions {
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Deposit amount section */
+.deposit-amount-section {
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+/* Range display for min and max deposit amounts */
+.deposit-range {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+/* Style for input fields */
+.deposit-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.deposit-input:focus {
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+  border: 2px solid #3498db; /* Focus effect */
+}
+
+/* Method Selection dropdown */
+.method-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.method-select {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.method-select:focus {
+  outline: none;
+  border: 2px solid #3498db;
+}
+
+/* Style for deposit button */
+.deposit-button {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ff7eb3, #ff758c);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.deposit-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.deposit-button:active {
+  transform: scale(0.98);
+}
+
+/* Message Box (optional for success/error messages) */
+.message-box {
+  margin-top: 20px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
